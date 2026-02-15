@@ -68,24 +68,18 @@ After deployment, update your final public URL in:
 - public/robots.txt
 - public/sitemap.xml
 
-## Notes for collaborators
-
-This repo intentionally keeps project content in one data file so non-developers can
-update titles, descriptions, and media links without changing core UI logic.
 
 ## Screenshots
 
-Add your screenshots to:
+Folder:
 
 `docs/screenshots/`
 
-Recommended files:
+Files:
 
 - `home-desktop.png`
 - `home-mobile.png`
 - `project-expanded.png`
-
-Once added, they will render on GitHub here:
 
 ### Desktop
 
