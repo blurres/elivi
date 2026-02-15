@@ -1,59 +1,101 @@
-# Elivi Portfolio (Frontend)
+# Elivi Portfolio Frontend
 
-Portfolio UI/interaction layer using React + TypeScript + Vite.
+This project is an interactive portfolio website built for creative and technical showcase.
+It presents projects as dynamic cards on a canvas-like layout with smooth transitions,
+filter controls, and an expanded detail view for each project.
 
-## Stack
+The app is frontend-only and is designed to be fast, visually clean, and easy to deploy.
+
+## What this app does
+
+- Shows portfolio projects as interactive cards
+- Supports grid and freeform browsing modes
+- Lets visitors filter content by search and tags
+- Opens full-screen project details with media preview
+- Adapts to mobile with a simplified control experience
+- Disables heavier interactions on smaller devices for smoother performance
+
+## Tech stack
 
 - React 19
 - TypeScript
 - Vite
 - Framer Motion
-- Lenis (smooth scrolling)
-- Lucide Icons
+- Lenis
+- Lucide React
 
-## Features
+## Project structure (high level)
 
-- Draggable project cards in chaos mode
-- Grid and chaos view toggle
-- Search and tag filtering dock
-- Animated liquid background
-- Expanded project modal preview
-- Embedded mini snake game modal
+- src/App.tsx: main layout and app state
+- src/components: UI building blocks (cards, dock, modal, mini-game)
+- src/data/portfolio.ts: portfolio content and seed data
+- public: static assets such as sitemap, robots, and social preview
 
 ## Run locally
 
-```bash
-npm install
-npm run dev
-```
+1. Install dependencies
+	 npm install
 
-## Build
+2. Start development server
+	 npm run dev
 
-```bash
-npm run build
-```
+3. Open the local URL shown in terminal
 
-## Preview production build
+## Production build
 
-```bash
-npm run preview
-```
+- Build
+	npm run build
 
-## Important note
-
-Run commands from this folder:
-
-`elivi`
-
+- Preview build
+	npm run preview
 
 ## Deployment (free hosting)
 
-### Vercel (free)
+Recommended: Vercel free plan.
 
-`https://your-project-name.vercel.app`
+1. Push this folder to GitHub
+2. Import repo into Vercel
+3. Keep default Vite settings
+4. Build command: npm run build
+5. Output directory: dist
 
-For most platforms:
+You will get a free URL like:
+https://your-project-name.vercel.app
 
-- Build command: `npm run build`
-- Output directory: `dist`
+After deployment, update your final public URL in:
+
+- index.html (canonical and social tags)
+- public/robots.txt
+- public/sitemap.xml
+
+## Notes for collaborators
+
+This repo intentionally keeps project content in one data file so non-developers can
+update titles, descriptions, and media links without changing core UI logic.
+
+## Screenshots
+
+Add your screenshots to:
+
+`docs/screenshots/`
+
+Recommended files:
+
+- `home-desktop.png`
+- `home-mobile.png`
+- `project-expanded.png`
+
+Once added, they will render on GitHub here:
+
+### Desktop
+
+![Desktop Home](docs/screenshots/home-desktop.png)
+
+### Mobile
+
+![Mobile Home](docs/screenshots/home-mobile.png)
+
+### Project Expanded View
+
+![Expanded Project View](docs/screenshots/project-expanded.png)
 
