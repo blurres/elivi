@@ -2,12 +2,61 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>elivi</title>
+    <meta name="description" content="Elivi GUIHO portfolio — interactive projects, experiments, and creative web work." />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Elivi GUIHO" />
+    <link rel="canonical" href="https://your-project-name.vercel.app/" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <title>Elivi GUIHO - Portfolio</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Elivi GUIHO - Portfolio" />
+    <meta property="og:description" content="Interactive portfolio featuring projects, experiments, and creative frontend work." />
+    <meta property="og:url" content="https://your-project-name.vercel.app/" />
+    <meta property="og:image" content="https://your-project-name.vercel.app/social-preview.svg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Elivi GUIHO - Portfolio" />
+    <meta name="twitter:description" content="Interactive portfolio featuring projects, experiments, and creative frontend work." />
+    <meta name="twitter:image" content="https://your-project-name.vercel.app/social-preview.svg" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
   </head>
   <body>
     <div id="root"></div>
+
+
+    <!-- SVG Filter for Mercury Effect -->
+    <svg style="position: absolute; width: 0; height: 0;">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+          <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+      </defs>
+    </svg>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

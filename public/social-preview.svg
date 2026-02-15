@@ -1,0 +1,38 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#050505"/>
+  <defs>
+    <radialGradient id="g1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(980 120) rotate(135) scale(520 420)">
+      <stop stop-color="#1F2937" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#050505" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(190 560) rotate(-35) scale(560 420)">
+      <stop stop-color="#1E3A8A" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#050505" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#g1)"/>
+  <rect width="1200" height="630" fill="url(#g2)"/>
+
+  <g opacity="0.2" stroke="#27272A">
+    <path d="M0 120H1200"/>
+    <path d="M0 240H1200"/>
+    <path d="M0 360H1200"/>
+    <path d="M0 480H1200"/>
+    <path d="M200 0V630"/>
+    <path d="M400 0V630"/>
+    <path d="M600 0V630"/>
+    <path d="M800 0V630"/>
+    <path d="M1000 0V630"/>
+  </g>
+
+  <circle cx="124" cy="96" r="7" fill="#22C55E"/>
+  <text x="146" y="103" fill="#71717A" font-size="20" font-family="Inter, Arial, sans-serif" letter-spacing="0.2em">ORBIT STABLE</text>
+
+  <text x="120" y="290" fill="#FFFFFF" font-size="96" font-family="Inter, Arial, sans-serif" font-weight="800" letter-spacing="-0.04em">ELIVI GUIHO</text>
+  <text x="120" y="360" fill="#A1A1AA" font-size="42" font-family="JetBrains Mono, monospace">Interactive Frontend Portfolio</text>
+  <text x="120" y="430" fill="#71717A" font-size="28" font-family="Inter, Arial, sans-serif">Projects • Motion • Experiments</text>
+
+  <rect x="120" y="490" width="364" height="62" rx="31" fill="#0B0B0F" stroke="#27272A"/>
+  <text x="153" y="531" fill="#FFFFFF" font-size="24" font-family="Inter, Arial, sans-serif">elivi.dev</text>
+</svg>
