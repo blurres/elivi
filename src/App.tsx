@@ -24,6 +24,7 @@ export default function App() {
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const maxZIndexRef = useRef(20);
+  const isSmallScreen = windowSize.width < 768;
 
   useEffect(() => {
     document.title = siteConfig.title;
@@ -56,6 +57,16 @@ export default function App() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  useEffect(() => {
+    if (isSmallScreen && viewMode !== 'grid') {
+      setViewMode('grid');
+    }
+
+    if (isSmallScreen && showGame) {
+      setShowGame(false);
+    }
+  }, [isSmallScreen, showGame, viewMode]);
 
   useEffect(() => {
     if (items.length > 0) return;
@@ -167,9 +178,9 @@ export default function App() {
   return (
     <div className={`relative h-screen w-screen bg-[#050505] selection:bg-white/20 ${isPerformanceMode ? '' : 'dot-pattern'}`}>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3, duration: 0.6 }} className="fixed inset-0 pointer-events-none z-[50]">
-        <div className="absolute top-8 left-8 pointer-events-auto select-none max-w-sm">
-          <h1 className="text-3xl font-black tracking-tighter text-white mb-2">{siteConfig.title.toUpperCase()}</h1>
-          <p className="text-xs font-mono text-zinc-400 leading-relaxed border-l border-zinc-700 pl-3">{siteConfig.bio}</p>
+        <div className="absolute top-4 left-4 md:top-8 md:left-8 pointer-events-auto select-none max-w-sm">
+          <h1 className="text-2xl md:text-3xl font-black tracking-tighter text-white mb-2">{siteConfig.title.toUpperCase()}</h1>
+          <p className="text-[11px] md:text-xs font-mono text-zinc-400 leading-relaxed border-l border-zinc-700 pl-3 pr-2 max-w-[85vw] md:max-w-sm">{siteConfig.bio}</p>
           <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-600 uppercase tracking-widest mt-3 pl-3">
             <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
             <span>Orbit Stable</span>
@@ -184,23 +195,25 @@ export default function App() {
             setSearchQuery={setSearchQuery}
             totalItems={filteredItems.length}
             tags={uniqueTags}
+            forceGrid={isSmallScreen}
           />
         </div>
 
-
-        <motion.button
-          className="fixed bottom-8 left-8 w-14 h-14 bg-black/80 border border-white/10 rounded-xl overflow-hidden shadow-2xl z-40 group hover:scale-105 transition-transform pointer-events-auto"
-          onClick={() => setShowGame(true)}
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 1 }}
-        >
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-0.5">
-            <Gamepad2 size={20} className="text-zinc-400 group-hover:text-green-400 transition-colors" />
-            <span className="text-[7px] font-mono tracking-widest text-zinc-600 uppercase group-hover:text-zinc-300">PLAY</span>
-          </div>
-        </motion.button>
+        {!isSmallScreen && (
+          <motion.button
+            className="fixed bottom-8 left-8 w-14 h-14 bg-black/80 border border-white/10 rounded-xl overflow-hidden shadow-2xl z-40 group hover:scale-105 transition-transform pointer-events-auto"
+            onClick={() => setShowGame(true)}
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 1 }}
+          >
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-0.5">
+              <Gamepad2 size={20} className="text-zinc-400 group-hover:text-green-400 transition-colors" />
+              <span className="text-[7px] font-mono tracking-widest text-zinc-600 uppercase group-hover:text-zinc-300">PLAY</span>
+            </div>
+          </motion.button>
+        )}
 
         <AnimatePresence>
           {viewMode === 'chaos' && (
@@ -256,7 +269,7 @@ export default function App() {
       </motion.div>
 
       <AnimatePresence>
-        {showGame && (
+        {showGame && !isSmallScreen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

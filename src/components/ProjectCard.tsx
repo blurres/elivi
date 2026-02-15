@@ -31,7 +31,11 @@ export function ProjectCard({ item, x, y, isGridMode, onUpdate, onFocus, onExpan
     >
       <motion.div
         className="relative border border-white/15 bg-black/60 rounded-xl overflow-hidden text-left shadow-2xl"
-        style={{ width: item.width, height: item.height, zIndex: item.zIndex }}
+        style={{
+          width: isGridMode ? `min(${item.width}px, calc(100vw - 1.5rem))` : item.width,
+          height: item.height,
+          zIndex: item.zIndex,
+        }}
         whileHover={{ scale: 1.02 }}
       >
         {showMedia && (
