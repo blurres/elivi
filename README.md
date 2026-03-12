@@ -49,25 +49,6 @@ The app is frontend-only and is designed to be fast, visually clean, and easy to
 - Preview build
 	npm run preview
 
-## Deployment (free hosting)
-
-Recommended: Vercel free plan.
-
-1. Push this folder to GitHub
-2. Import repo into Vercel
-3. Keep default Vite settings
-4. Build command: npm run build
-5. Output directory: dist
-
-You will get a free URL like:
-https://your-project-name.vercel.app
-
-After deployment, update your final public URL in:
-
-- index.html (canonical and social tags)
-- public/robots.txt
-- public/sitemap.xml
-
 
 ## Screenshots
 
